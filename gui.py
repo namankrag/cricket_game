@@ -78,9 +78,14 @@ class CricketGameGUI:
     def switch_innings(self):
         if self.innings == 1:
             self.innings += 1
-            self.current_team = "Team B"
-            self.balls = 0
-            self.label_status.config(text="Team B is now batting.")
+            if self.current_team == "Team A":
+                self.current_team = "Team B"
+                self.balls = 0
+                self.label_status.config(text="Team B is now batting.")
+            else:
+                self.current_team = "Team A"
+                self.balls = 0
+                self.label_status.config(text="Team A is now batting.")
         else:
             self.declare_winner()
 
